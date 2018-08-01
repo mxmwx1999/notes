@@ -1,6 +1,5 @@
 apt-get install shadowsocks
-nano /etc/vpn.json
-
+nano /etc/vpn.json #文件名随意即可
 {
   "server":"ip",
   "server_port":8388,
@@ -8,11 +7,10 @@ nano /etc/vpn.json
   "timeout":300,
   "method":"aes-256-cfb"
 }
-
 apt-get install python-m2crypto
-ssserver -c /etc/vpn.json
+ssserver -c /etc/vpn.json  #启动ssr
 
-nano /etc/rc.local
+nano /etc/rc.local  #rc.local会开机自启，把命令添加进去就能开机自动运行
 
 ssserver -c /etc/vpn.json
-exit 0
+exit 0     #在rc.local的最后添加命令
