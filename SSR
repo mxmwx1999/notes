@@ -1,0 +1,18 @@
+apt-get install shadowsocks
+nano /etc/vpn.json
+
+{
+  "server":"ip",
+  "server_port":8388,
+  "password":"mima",
+  "timeout":300,
+  "method":"aes-256-cfb"
+}
+
+apt-get install python-m2crypto
+ssserver -c /etc/vpn.json
+
+nano /etc/rc.local
+
+ssserver -c /etc/vpn.json
+exit 0
